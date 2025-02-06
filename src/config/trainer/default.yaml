@@ -1,0 +1,28 @@
+# Default configs for initializing a lightning Trainer
+# author: Juanwu Lu
+# See https://lightning.ai/docs/pytorch/stable/common/trainer.html
+_target_: lightning.pytorch.trainer.Trainer
+_convert_: "all"
+
+accelerator: cpu # str: ``"cpu"``, ``"gpu"``, ``"tpu"``, ``"ipu"``, or ``"auto"``
+strategy: auto # str: Training strategy
+devices: auto # List[int] | str | int: The devices to use.
+num_nodes: 1 # int: Number of GPU nodes for distributed training.
+precision: 32-true # see documentation
+min_epochs: 1 # int: Force training for at least these many epochs
+max_epochs: 100 # int: Maiximum number of epochs to train for (default: 100).
+
+val_check_interval: 1.0 # [int, float, None]: How often to check the validation set. Float for fraction, int for step (batches).
+check_val_every_n_epoch: 1 # int: Perform a validation loop every n training epochs.
+limit_train_batches: 1.0 # [int, float, None]: How much of training dataset to check (float = fraction, int = num_batches, None = entire dataset).
+limit_val_batches: 1.0 # [int, float, None]: How much of validation dataset to check (float = fraction, int = num_batches, None = entire dataset).
+limit_test_batches: 1.0 # [int, float None]: How much of test dataset to check (float = fraction, int = num_batches, None = entire dataset).
+
+num_sanity_val_steps: null # [int, None]: Sanity check runs n validation batches before starting the training routine.
+detect_anomaly: false # bool: Enables anomaly detection during training (helps find bugs).
+accumulate_grad_batches: 1 # int: Accumulates grads every k batches or as set up in the dict.
+gradient_clip_val: null # [float, None]: The value at which to clip gradients.
+gradient_clip_algorithm: "norm" # str: "norm" or "value"
+sync_batchnorm: false # bool: Synchronize batch norm layers between process groups/whole world.
+
+default_root_dir: ${paths.output_dir}

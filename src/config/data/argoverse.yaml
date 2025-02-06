@@ -1,0 +1,13 @@
+# ARGO2 dataset configuration file
+# author: Can CUi
+_target_: seneva.data.datamodule.Argoverse2DataModule
+_convert_: "all"
+
+root: ${oc.env:PROJECT_ROOT}/data/av2
+radius: null
+batch_size: 64
+enable_train: true
+enable_val: true
+enable_test: false
+num_workers: null
+pin_memory: true

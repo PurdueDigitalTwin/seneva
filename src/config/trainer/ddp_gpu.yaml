@@ -1,0 +1,11 @@
+# Overrides default configs for training on GPUs with Distributed Data Parallel (DDP).
+# @author Juanwu Lu
+# @package _global_
+defaults:
+  - default
+
+accelerator: gpu
+strategy: ddp
+num_nodes: 1
+devices: 4
+sync_batchnorm: True

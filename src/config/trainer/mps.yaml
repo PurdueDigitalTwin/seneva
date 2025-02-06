@@ -1,0 +1,8 @@
+# Overrides default configs for training on Apple Silicon.
+# @author Juanwu Lu
+# @package _global_
+defaults:
+  - default
+
+accelerator: mps
+devices: 1

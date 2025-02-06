@@ -1,0 +1,83 @@
+[build-system]
+build-backend = "setuptools.build_meta"
+requires = ["setuptools>=59.5.0"]
+
+[project]
+name = "seneva"
+version = "0.0.1"
+description = "Quantifying Uncertainty in Motion Prediction Model"
+authors = [{name="Juanwu Lu", email="juanwu@purdue.edu"},
+           {name="Can Cui", email="cancui@purdue.edu"}]
+readme = "README.md"
+license = {file = "LICENSE"}
+requires-python = "==3.10.*"
+dependencies = [
+  "geopandas==0.13.*",
+  "gitpython==3.1.*",
+  "interaction-devkit==0.1.15",
+  "hydra-core==1.3.*",
+  "hydra-colorlog==1.2.*",
+  "lightning==2.3.1",
+  "rich==13.7.1",
+  "tensorboard",
+  "torch==2.3.0",
+  "torch_geometric==2.5.*",
+  "torchmetrics==0.11.*",
+]
+keywords = [
+  "autonomous-driving",
+  "motion-forecasting",
+  "uncertainty-quantification",
+]
+classifiers = [
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3 :: Only",
+]
+
+[project.scripts]
+train-seneva = "seneva.train:main"
+
+[project.optional-dependencies]
+dev = ["pre-commit<4.0.0", "pytest", "pytest-cov", "torch_tb_profiler"]
+notebook = ["ipykernel", "ipympl", "ipywidgets"]
+
+[project.urls]
+repository = "https://github.com/juanwulu/graph-motion-prediction"
+
+[tool.black]
+line-length = 79
+
+[tool.pytest.ini_options]
+addopts = [
+  "--color=yes",
+  "--durations=0",
+  "--strict-markers",
+  "--doctest-modules",
+]
+filterwarnings = [
+  "ignore::DeprecationWarning",
+  "ignore::UserWarning",
+]
+log_cli = "True"
+markers = [
+  "slow: slow tests",
+]
+minversion = "6.0"
+testpaths = ["src/tests"]
+
+[tool.coverage.report]
+exclude_lines = [
+    "pragma: nocover",
+    "raise NotImplementedError",
+    "raise NotImplementedError()",
+    "if __name__ == .__main__.:",
+]
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptool.packages.find]
+where = ["src"]
+include = ["seneva"]

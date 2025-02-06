@@ -209,3 +209,10 @@ cython_debug/
 # Visual Studio Code
 *.code-workspace
 .vscode/
+
+
+# Dataset (out of license considerations)
+/data/
+
+# Running logs (out of license considerations)
+/logs/

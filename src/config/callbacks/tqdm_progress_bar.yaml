@@ -1,0 +1,7 @@
+# See https://lightning.ai/docs/pytorch/stable/api/lightning.pytorch.callbacks.TQDMProgressBar.html?highlight=progressbar#lightning.pytorch.callbacks.TQDMProgressBar
+
+tqdm_progress_bar:
+  _target_: lightning.pytorch.callbacks.TQDMProgressBar
+  _convert_: "all"
+  refresh_rate: 1 # int: Determines at which rate (in number of batches) the progress bars get updated. Set it to 0 to disable the display.
+  process_position: 0 # int: Set this to a value greater than 0 to offset the progress bars by this many lines. This is useful when you have progress bars defined elsewhere and want to show all of them together. This corresponds to process_position in the Trainer.

@@ -1,0 +1,35 @@
+name: Code Quality Pull Requests
+
+on:
+  pull_request:
+    branches: [master, "release/*", "dev", "*/dev", "*/*-dev"]
+
+jobs:
+  code-quality:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
+
+      - name: Upload coverage reports to Codecov
+        uses: codecov/codecov-action@v3
+        env:
+          CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
+
+      - name: Find modified files
+        id: file_changes
+        uses: trilom/file-changes-action@v1.2.4
+        with:
+          output: " "
+
+      - name: List modified files
+        run: echo '${{ steps.file_changes.outputs.files}}'
+
+      - name: Run pre-commits
+        uses: pre-commit/action@v2.0.3
+        with:
+          extra_args: --files ${{ steps.file_changes.outputs.files}}

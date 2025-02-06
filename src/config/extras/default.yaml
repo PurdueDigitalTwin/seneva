@@ -1,0 +1,8 @@
+# disable python warnings
+ignore_warnings: true
+
+# ask users for tags if none are provided in the config
+enforce_tags: true
+
+# pretty print config tree at the beginning
+print_config: true

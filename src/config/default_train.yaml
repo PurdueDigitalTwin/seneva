@@ -1,0 +1,36 @@
+# @package _global_
+
+defaults:
+  - _self_
+  - data: ???
+  - model: ???
+  - callbacks: default
+  - logger: default
+  - trainer: default
+  - paths: default
+  - extras: default
+  - hydra: default
+
+  # Experiment settings
+  - experiment: null
+
+# Job name
+task_name: "train"
+
+# Tags to distinguish different experiments settings
+tags: "debug"
+
+# If to run training
+train: True
+
+# If to run testing
+test: False
+
+# If to compile model for acceleration
+compile: False
+
+# Provide checkpoint directory to resume from previous training.
+checkpoint: null
+
+# seed for global random control
+seed: 42

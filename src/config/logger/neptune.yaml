@@ -1,0 +1,11 @@
+# See https://lightning.ai/docs/pytorch/2.0.3/api/lightning.pytorch.loggers.neptune.html?highlight=neptune#module-lightning.pytorch.loggers.neptune
+
+neptune:
+  _target_: lightning.pytorch.loggers.neptune.NeptuneLogger
+  _convert_: "all"
+  api_key: ${oc.env:NEPTUNE_API_TOKEN} # str: Neptune API token
+  project: username/lightning-hydra-template # str: Name of a project in a form of namespace/project_name
+  name: null # str: Editable name of the run.
+  run: null # `Run``: The Neptune `Run` object.
+  log_model_checkpoints: True # bool: Log model checkpoint to Neptune.
+  prefix: "" # str: A string to put at the beginning of metric keys.

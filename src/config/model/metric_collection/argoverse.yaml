@@ -1,0 +1,17 @@
+# Argoverse 2 Dataset metrics
+# @author Juanwu Lu
+# @package _global_
+_target_: torchmetrics.MetricCollection
+_convert_: "all"
+
+metrics:
+  minADE:
+    _target_: seneva.data.metrics.MinAverageDisplacementError
+    _convert_: "all"
+  minFDE:
+    _target_: seneva.data.metrics.MinFinalDisplacementError
+    _convert_: "all"
+  MR:
+    _target_: seneva.data.metrics.MissRate
+    _convert_: "all"
+    use_piecewise_threshold: false

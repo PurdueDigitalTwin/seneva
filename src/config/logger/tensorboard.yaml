@@ -1,0 +1,12 @@
+# See https://lightning.ai/docs/pytorch/stable/extensions/generated/lightning.pytorch.loggers.TensorBoardLogger.html
+
+tensorboard:
+  _target_: lightning.pytorch.loggers.tensorboard.TensorBoardLogger
+  _convert_: "all"
+  save_dir: "${paths.output_dir}/tensorboard/" # str: Save directory
+  name: null # str: Experiment name. Defaults to 'default'. If it is the empty string then no per-experiment subdirectory is used.
+  version: null # str: Experiment version. If version is not specified the logger inspects the save directory for existing versions, then automatically assigns the next available version.
+  log_graph: false # bool: If ``True``, graph will be logged to TensorBoard.
+  default_hp_metric: false # bool: If ``True``, enables a placeholder metric with key ``hp_metric`` that will be logged to TensorBoard.
+  prefix: "" # str: A string to put at the beginning of metric keys.
+  sub_dir: null # str: A string to put at the end of the save_dir name for this specific run.

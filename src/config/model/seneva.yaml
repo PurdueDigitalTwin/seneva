@@ -1,0 +1,39 @@
+# Configurations for SeNeVA model
+# @author Juanwu Lu
+# @package _global_
+defaults:
+  - _self_
+  - metric_collection: interaction
+
+_target_: seneva.model.seneva.SeNeVALightningModule
+_convert_: "all"
+
+network_kwargs:
+  # encoder arguments
+  map_in_features: ???
+  motion_in_features: ???
+  map_hidden_size: 128
+  motion_hidden_size: 128
+  # decoder arguments
+  decoder_hidden_size: 64
+  num_components: 3
+  # default arguments
+  dropout: 0.1
+  encoder_num_heads: 2
+  prediction_horizon: ???
+  num_subgraph_layers: 3
+  num_global_layers: 1
+  alpha: 0.25
+  gamma: 2.0
+
+optimizer_kwargs:
+  lr: 0.001
+  betas:
+    - 0.90
+    - 0.95
+  weight_decay: 0.01
+  warmup_steps: 1000
+  max_steps: 100000
+  min_lr: 0.00005
+
+monitor: minFDE # metric to monitor for checkpointing

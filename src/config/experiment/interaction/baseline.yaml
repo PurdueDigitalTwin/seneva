@@ -1,0 +1,44 @@
+# @package _global_
+# Baseline model on INTERACTION Dataset
+# author: Juanwu Lu
+
+defaults:
+  - override /data: interaction
+  - override /model: seneva
+  - override /model/metric_collection: interaction
+
+callbacks:
+  model_checkpoint:
+    monitor: "val/minFDE_best"
+  early_stopping:
+    monitor: "val/minFDE_best"
+
+data:
+  batch_size: 128
+  num_workers: 16
+  radius: 50.0
+  transform:
+    - _target_: seneva.data.transform.TargetCentricTransform
+      _convert_: "all"
+    - _target_: seneva.data.transform.TargetReshapeTransform
+      _convert_: "all"
+      horizon: 30
+
+model:
+  network_kwargs:
+    map_in_features: 9
+    map_hidden_size: 64
+    motion_in_features: 7
+    prediction_horizon: 30
+    num_components: 6
+  optimizer_kwargs:
+    lr: 0.001
+
+trainer:
+  check_val_every_n_epoch: 5
+  max_epochs: -1
+
+tags:
+  - interaction
+  - radius
+  - ${data.radius}

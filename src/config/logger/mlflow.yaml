@@ -1,0 +1,13 @@
+# See https://lightning.ai/docs/pytorch/2.0.3/api/lightning.pytorch.loggers.mlflow.html?highlight=mlflow#lightning.pytorch.loggers.mlflow.MLFlowLogger
+
+mlflow:
+  _target_: lightning.pytorch.loggers.mlflow.MLFlowLogger
+  experiment_name: "${task}" # str: The experiment name to be created in MLFlow
+  run_name: "" # str: The name of this run
+  tracking_uri: ${paths.log_dir}/mlflow/mlruns # str: run `mlflow ui` command inside the `logs/mlflow/` dir to open the UI
+  tags: null # dict: A dictionary tags for the current run
+  log_model: false # Literal[True, False, "all"]: Log checkpoints created by ModelCheckpointLogger as MLFlow artifacts.
+  save_dir: "./mlruns" # str: Save directory
+  prefix: "" # str: A string to put at the beginning of metric keys.
+  artifact_location: null # str: The location to store run artifacts.
+  run_id: null # str: The run identifier. If not provided, will default to the current run, provided by the MLFlow client.

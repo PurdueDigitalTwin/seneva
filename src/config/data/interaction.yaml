@@ -1,0 +1,19 @@
+# INTERACTION dataset configuration file
+# author: Juanwu Lu
+_target_: seneva.data.datamodule.INTERACTIONDataModule
+_convert_: "all"
+
+root: ???
+challenge_type: single-agent
+subsampler:
+  _target_: seneva.data.subsampler.INTERACTIONSubsampler
+  _convert_: "all"
+  ratio: 1.0
+  locations: null
+transform: null
+radius: null
+enable_test: false
+batch_size: 64
+num_workers: null
+pin_memory: true
+train_on_full_data: false

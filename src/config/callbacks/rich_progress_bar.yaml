@@ -1,0 +1,20 @@
+# See https://lightning.ai/docs/pytorch/stable/api/lightning.pytorch.callbacks.RichProgressBar.html?highlight=progressbar#lightning.pytorch.callbacks.RichProgressBar
+
+rich_progress_bar:
+  _target_: lightning.pytorch.callbacks.RichProgressBar
+  _convert_: "all"
+  refresh_rate: 1 # int: Determines at which rate (in number of batches) the progress bars get updated. Set it to 0 to disable the display.
+  leave: false # bool: Leaves the finished progress bar in the terminal at the end of the epoch. Default: False
+  theme: # RichProgressBarTheme: Contains styles used to stylize the progress bar.
+    # See https://lightning.ai/docs/pytorch/stable/_modules/lightning/pytorch/callbacks/progress/rich_progress.html#RichProgressBarTheme
+    _target_: lightning.pytorch.callbacks.progress.rich_progress.RichProgressBarTheme
+    _convert_: "all"
+    description: "Steps" # str: Description of the progress bar.
+    progress_bar: "#CFB991" # str: Style for the bar in progress.
+    progress_bar_finished: "#A0C544" # str: Style for the finished progress bar.
+    progress_bar_pulse: "#555960" # str: Style for the progress bar when `IterableDataset` is being processed.
+    batch_progress: "white" # str: Style for the progress tracker (i.e 10/50 batches completed).
+    time: "grey54" # str: Style for the processed time and estimate time remaining
+    processing_speed: "grey70" # str: Style for the speed of the batches being processed
+    metrics: "white" # str: Style for the metrics
+  console_kwargs: null # Optional[Dict[str, Any]]: Args for constructing a Console

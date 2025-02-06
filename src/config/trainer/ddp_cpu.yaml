@@ -1,0 +1,9 @@
+# Overrides default configs for training on CPUs with Distributed Data Parallel (DDP).
+# @author Juanwu Lu
+# @package _global_
+defaults:
+  - default
+
+accelerator: cpu
+strategy: ddp_spawn
+devices: 2

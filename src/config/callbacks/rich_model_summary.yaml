@@ -1,0 +1,6 @@
+# See https://lightning.ai/docs/pytorch/stable/api/lightning.pytorch.callbacks.RichModelSummary.html?highlight=richmodelsummary#lightning.pytorch.callbacks.RichModelSummary
+
+model_summary:
+  _target_: lightning.pytorch.callbacks.RichModelSummary
+  _convert_: "all"
+  max_depth: 1

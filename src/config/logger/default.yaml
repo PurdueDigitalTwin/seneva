@@ -1,0 +1,10 @@
+# Default configurations for training loggers
+# @author: Juanwu Lu
+
+defaults:
+  # - comet
+  # - csv
+  # - mlflow
+  # - neptune
+  - tensorboard
+  # - wandb

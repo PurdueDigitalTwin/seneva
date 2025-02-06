@@ -35,4 +35,3 @@ If you find our work helpful for your project, please cite
 ## License
 
 This implementation of SeNeVA is licensed under the MIT license. See `LICENSE` for details.
-

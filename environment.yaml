@@ -1,0 +1,10 @@
+name: seneva
+channels:
+      - conda-forge
+      - defaults
+dependencies:
+      - python=3.10.*
+      - pip=23.3.*
+      - setuptools=69.0.*
+      - pip:
+              - git+https://github.com/argoverse/av2-api#egg=av2

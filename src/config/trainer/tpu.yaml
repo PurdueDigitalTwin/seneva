@@ -1,0 +1,8 @@
+# Overrides default configs for training on TPU.
+# @author Juanwu Lu
+# @package _global_
+defaults:
+  - default
+
+accelerator: tpu
+devices: 1

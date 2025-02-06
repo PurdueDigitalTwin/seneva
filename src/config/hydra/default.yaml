@@ -1,0 +1,15 @@
+# Default configurations for Hydra library.
+# @author Juanwu Lu
+# @package _global_
+defaults:
+  # enable color logging
+  - override hydra_logging: colorlog
+  - override job_logging: colorlog
+
+# output directory
+run:
+  # output directory for a single run
+  dir: ${paths.log_dir}/${task_name}/runs/${join_string_underscore:${tags}}/${now:%Y-%m-%d}_${now:%H-%M-%S}
+sweep:
+  # output directory for a queue of tasks
+  dir: ${paths.log_dir}/${task_name}/multiruns/${join_string_underscore:${tags}}/${now:%Y-%m-%d}_${now:%H-%M-%S}

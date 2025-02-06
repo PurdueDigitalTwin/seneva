@@ -1,0 +1,8 @@
+# Overrides default configs for training on CPU.
+# @author Juanwu Lu
+# @package _global_
+defaults:
+  - default
+
+accelerator: cpu
+devices: 1

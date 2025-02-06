@@ -1,0 +1,13 @@
+# See https://lightning.ai/docs/pytorch/2.0.3/api/lightning.pytorch.loggers.comet.html?highlight=comet%20logger#module-lightning.pytorch.loggers.comet
+
+comet:
+  _target_: lightning.pytorch.loggers.comet.CometLogger
+  _convert_: "all"
+  api_key: ${oc.env:COMET_API_TOKEN} # str: api key is loaded from environment variable
+  save_dir: "${paths.output_dir}" # str: Required in offline mode. The path for the directory to save local comet logs.
+  project_name: "lightning-hydra-template" # str: The comet project to upload to
+  rest_api_key: null # str: Rest API key found in Comet.ml settings.
+  experiment_name: "${task}" # str: The name of this experiment
+  experiment_key: null # #str: set to resume experiment
+  offline: false # bool: Enables offline mode for CometLogger
+  prefix: "" # str: A string to put at the beginning of metric keys.

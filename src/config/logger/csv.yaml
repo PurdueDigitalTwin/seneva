@@ -1,0 +1,7 @@
+# See https://lightning.ai/docs/pytorch/2.0.3/api/lightning.pytorch.loggers.csv_logs.html?highlight=csvlogger#lightning.pytorch.loggers.csv_logs.CSVLogger
+
+csv:
+  _target_: lightning.pytorch.loggers.csv_logs.CSVLogger
+  save_dir: "${paths.output_dir}" # str: Save directory
+  name: "csv/" # str: Experiment name. Defaults to 'csv/'
+  prefix: "" # str: A string to put at the beginning of metric keys.

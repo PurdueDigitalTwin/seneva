@@ -1,0 +1,8 @@
+# Overrides default configs for training on GPU.
+# @author Juanwu Lu
+# @package _global_
+defaults:
+  - default
+
+accelerator: gpu
+devices: 1

@@ -1,0 +1,26 @@
+# Default callbacks for training and testing.
+# author: Juanwu Lu
+
+defaults:
+  - model_checkpoint
+  - early_stopping
+  - rich_model_summary
+  - rich_progress_bar
+  - _self_
+
+# Overrides default configs.
+model_checkpoint:
+  dirpath: ${paths.output_dir}/checkpoints
+  filename: "epoch_{epoch:03d}_${parse_git_sha:false}"
+  monitor: "val/MR_best"
+  mode: "min"
+  save_last: True
+  auto_insert_metric_name: False
+
+early_stopping:
+  monitor: "val/MR_best"
+  patience: 10
+  mode: "min"
+
+model_summary:
+  max_depth: 2
