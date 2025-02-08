@@ -85,12 +85,22 @@ If you find our work helpful for your project, please cite
 
 ```bibtex
 @InProceedings{Lu_2024_CVPR,
-    author    = {Lu, Juanwu and Cui, Can and Ma, Yunsheng and Bera, Aniket and Wang, Ziran},
-    title     = {Quantifying Uncertainty in Motion Prediction with Variational Bayesian Mixture},
+    author = {Lu, Juanwu and Cui, Can and Ma, Yunsheng and Bera, Aniket and Wang, Ziran},
+    title  = {Quantifying Uncertainty in Motion Prediction with Variational Bayesian Mixture},
     booktitle = {Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)},
-    month     = {June},
-    year      = {2024},
-    pages     = {15428-15437}
+    month = {June},
+    year  = {2024},
+    pages = {15428-15437}
+}
+
+@misc{lu2024quantifyinguncertaintymotionprediction,
+      title={Quantifying Uncertainty in Motion Prediction with Variational Bayesian Mixture}, 
+      author={Juanwu Lu and Can Cui and Yunsheng Ma and Aniket Bera and Ziran Wang},
+      year={2024},
+      eprint={2404.03789},
+      archivePrefix={arXiv},
+      primaryClass={cs.CV},
+      url={https://arxiv.org/abs/2404.03789}, 
 }
 ```
 
